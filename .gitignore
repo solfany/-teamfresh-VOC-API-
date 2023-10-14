@@ -1,5 +1,4 @@
 
-# 추가
 # Compiled class files
 *.class
 
@@ -32,6 +31,7 @@ target/
 # OS Files
 .DS_Store
 
+
 # Spring Boot specific artifacts
 spring-boot-devtools/
 .springBeans/
@@ -40,12 +40,6 @@ spring-boot-devtools/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-# gitignore
-# Created by https://www.toptal.com/developers/gitignore/api/macos,gradle,windows
-# Edit at https://www.toptal.com/developers/gitignore?templates=macos,gradle,windows
-
-### macOS ###
-# General
 .AppleDouble
 .LSOverride
 
@@ -128,8 +122,3 @@ gradle-app.setting
 ### Gradle Patch ###
 # Java heap dump
 *.hprof
-
-### 그외
-HELP.md
-
-# End of https://www.toptal.com/developers/gitignore/api/macos,gradle,windows
