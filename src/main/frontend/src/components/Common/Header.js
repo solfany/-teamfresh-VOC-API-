@@ -17,6 +17,9 @@ function Header() {
             <Link to="/check">클레임 확인하기 [고객사/운송사 전용] </Link>
           </li>
           <li>
+            <Link to="/situation">클레임 처리 상황 </Link>
+          </li>
+          <li>
             <Link to="/login">로그인 </Link>
           </li>{" "}
         </ul>

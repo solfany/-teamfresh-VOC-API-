@@ -1,26 +1,30 @@
-debug: false
-#management.endpoints.web.exposure.include: "*"
+server:
+  port: 8080
 
-logging:
+  logging:
   level:
-    com.com.example.projectboard: debug
-    org.springframework.web.servlet: debug
-    org.hibernate.type.descriptor.sql.BasicBinder: trace
+    com.com.example.projectboard: debug  # 프로젝트의 로깅 레벨을 디버그로 설정
+    org.springframework.web.servlet: debug  # Spring의 웹 서블릿 로깅 레벨을 디버그로 설정
+    org.hibernate.type.descriptor.sql.BasicBinder: trace  # Hibernate의 SQL 바인딩 로깅 레벨을 트레이스로 설정
 
 spring:
   datasource:
-      url: ${LOCAL_DB_URL}
-      username: ${LOCAL_DB_USERNAME}
-      password: ${LOCAL_DB_PASSWORD}
+    url: ${LOCAL_DB_URL}
+    username: ${LOCAL_DB_USERNAME}
+    password: ${LOCAL_DB_PASSWORD}
+
   jpa:
-    open-in-view: false
-    defer-datasource-initialization: true
-    hibernate.ddl-auto: create
-    show-sql: true
-    properties:
-      hibernate.format_sql: true
-      hibernate.default_batch_fetch_size: 100
-  sql.init.mode: always
-  data.rest:
-    base-path: /api
-    detection-strategy: annotated
+    open-in-view: false  # 지연 로딩이 뷰 외부에서 발생하는 것을 방지
+    defer-datasource-initialization: true  # 초기화를 지연시킴
+    hibernate:
+      ddl-auto: update  # 데이터베이스 스키마를 자동으로 생성
+      show-sql: true  # 실행되는 SQL 쿼리를 출력
+      format_sql: true  # SQL 문장을 포맷팅하여 가독성 향상
+      properties:
+        hibernate.default_batch_fetch_size: 100  # 배치 크기 설정으로 성능 향상
+
+  data:
+    rest:
+      base-path: /api  # REST API의 기본 경로 설정
+      detection-strategy: annotated  # 어노테이션이 있는 엔티티만 감지
+

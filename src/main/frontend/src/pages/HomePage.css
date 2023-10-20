@@ -9,8 +9,6 @@
 .content {
   background-color: #fff;
   padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
@@ -21,4 +19,28 @@ h1 {
 
 p {
   font-size: 1.2em;
+}
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 130vh; /* 화면 전체 높이에 맞춰줍니다. */
+}
+
+.content {
+  text-align: center; /* 내용을 중앙 정렬합니다. */
+  margin: 0 auto; /* 중앙 정렬 */
+  padding: 20px;
+}
+
+.content h1 {
+  margin-bottom: 20px; /* 제목과 이미지 사이의 간격 */
+  color: #333;
+}
+
+.content img {
+  max-width: 100%; /* 이미지가 너무 크면, 부모 요소에 맞게 크기 조절 */
+  height: auto; /* 가로 세로 비율 유지 */
+  margin-top: 20px; /* 이미지 상단 간격 */
+  border-radius: 5px; /* 이미지 모서리 둥글게 */
 }

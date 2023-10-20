@@ -1,42 +1,58 @@
+// ClaimDetailPage
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Container, Card } from "react-bootstrap";
+import axios from "axios";
 import "./index.css";
-import { Container } from "react-bootstrap";
 
 function ClaimDetailPage() {
   const { id } = useParams();
-
-  // 임시 데이터
   const [claimData, setClaimData] = useState(null);
 
   useEffect(() => {
-    // 여기에서 API 통신을 통해 상세 정보를 가져오거나 임시 데이터를 사용할 수 있습니다.
-    // 예를 들어, 다음과 같은 임시 데이터를 설정하였습니다:
-    setClaimData({
-      id: id,
-      description: "Broken item during transit",
-      responsibleParty: "Carrier", // "Carrier" 또는 "Customer"
-    });
-  }, [id]);
+    axios
+      .get(`/api/voc/DETAIL/${id}`) // 예상 API 경로, 실제 경로에 맞게 수정해주세요
+      .then((response) => {
+        setClaimData(response.data);
+        console.log("연결");
+        console.log(response);
+      })
+      .catch((error) => {
+        console.error("Error fetching claim details:", error);
+      });
+  }, [setClaimData]);
 
   return (
-    <>
-      <Container className="mt-4 Container">
-        <h2>클레임 상세 정보 - {id}</h2>
-        {claimData && (
-          <>
-            <p>
-              <strong>Description:</strong> {claimData.description}
-            </p>
-            <p>
-              <strong>Responsible Party:</strong>{" "}
-              {claimData.responsibleParty === "Carrier" ? "운송사" : "고객사"}
-            </p>
-          </>
-        )}
-      </Container>
-    </>
+    <Container className="mt-4 Container ">
+      {claimData && (
+        <>
+          <h2>
+            {claimData.managerType === "CUSTOMER" ? "고객사" : "운송사"} 클레임
+            상세 정보
+          </h2>
+          <Card className="mt-4">
+            <Card.Header>클레임 ID: {claimData.id}</Card.Header>
+            <Card.Body>
+              <Card.Text>귀책 당사자: {claimData.driver?.driverType}</Card.Text>
+              <Card.Text>귀책 내용: {claimData.vocContent}</Card.Text>
+              <Card.Text>
+                귀책 확인 여부: {claimData.verificationStatus ? "Y" : "N"}
+              </Card.Text>
+              <Card.Text>
+                패널티 내용: {claimData.penalty?.penaltyContent}
+              </Card.Text>
+              <Card.Text>
+                이의제기 확인 여부:{" "}
+                {claimData.objection?.objectionStatus ? "Y" : "N"}
+              </Card.Text>
+              <Card.Text>
+                배상정보: {claimData.compensation?.compensationAmount}
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </>
+      )}
+    </Container>
   );
 }
-
 export default ClaimDetailPage;
