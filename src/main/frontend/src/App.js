@@ -15,6 +15,13 @@ import ConfirmCarrier from "./pages/ConfirmCarrier";
 // ----클레임 목록 확인하기----
 import ClaimDetailPage from "./pages/ClaimDetailPage";
 // import ConfirmCarrier from "./pages/ConfirmCarrier";
+// ----클레임 진행 상황----
+import ClaimSituation from "./pages/ClaimSituation";
+import Compensation from "./pages/Compensation";
+import Objection from "./pages/Objection";
+import CompensationDetailPage from "./pages/CompensationDetailPage";
+import ObjectionDetailPage from "./pages/ObjectionDetailPage";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 
@@ -40,8 +47,6 @@ function App() {
           />
           {/* 고객사 클레임 목록 */}
           <Route path="/claims/claimdetail/:id" element={<ClaimDetailPage />} />
-          {/* 고객사 클레임 목록 */}
-          <Route path="/claims/claimdetail/:id" element={<ClaimDetailPage />} />
 
           {/* 배송사 클레임 */}
           <Route
@@ -64,6 +69,24 @@ function App() {
 
           <Route path="/check/confirmcustomer" element={<ConfirmCustomer />} />
           <Route path="/check/confirmcarrier" element={<ConfirmCarrier />} />
+
+          {/* ================클레임 진행 상황==================== */}
+          <Route path="/situation" element={<ClaimSituation />} />
+          {/* 배상 */}
+          <Route path="/situation/compensation" element={<Compensation />} />
+          {/* 배상 접수 상세페이지 */}
+          <Route
+            path="/situation/compensation/:id"
+            element={<CompensationDetailPage />}
+          />
+
+          {/* 이의 */}
+          <Route path="/situation/objection" element={<Objection />} />
+          {/* 이의 접수 상세페이지 */}
+          <Route
+            path="/situation/objection/:id"
+            element={<ObjectionDetailPage />}
+          />
 
           {/* 기타 경로 추가 */}
         </Routes>

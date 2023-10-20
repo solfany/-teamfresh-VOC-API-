@@ -1,23 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./index.css";
 import { Container, Button, Col } from "react-bootstrap";
+import axios from "axios";
+import "./index.css";
 
 function ClaimListCustomer() {
   const navigate = useNavigate();
-
   // 임시 데이터를 claims 상태에 추가
-  const [claims, setClaims] = useState([
-    {
-      id: 1,
-      orderNumber: "1234",
-      claimType: "Damage",
-      description: "Broken item",
-      claimAmount: "100",
-      responsibleParty: "Customer",
-    },
-    // 추가적으로 다른 데이터도 넣을 수 있습니다.
-  ]);
+  const [claims, setClaims] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("/api/voc/CUSTOMER")
+      .then((response) => {
+        setClaims(response.data);
+        console.log("연결되었습니다.");
+        console.log(response);
+      })
+      .catch((error) => {
+        console.error("Error fetching VOCs:", error);
+      });
+  }, [setClaims]);
 
   const handleClaimClick = () => {
     navigate(
@@ -31,16 +34,15 @@ function ClaimListCustomer() {
 
   return (
     <Container className="mt-4 Container">
-      {/* ... 폼 부분 생략 ... */}
       <h3 className="mt-4">접수된 고객사 클레임 목록</h3>
-      <table className="table table-striped">
+      <table className="table table-striped ">
         <thead>
           <tr>
-            <th>Order Number</th>
-            <th>Claim Type</th>
-            <th>Description</th>
-            <th>Claim Amount</th>
-            <th>Responsible Party</th>
+            <th>귀책 담당자</th>
+            <th>귀책 내용</th>
+            <th>패널티 내용</th>
+            <th>배상정보</th>
+            <th>귀책 담당자 확인 여부</th>
           </tr>
         </thead>
         <tbody>
@@ -50,11 +52,11 @@ function ClaimListCustomer() {
               onClick={() => handleRowClick(claim.id)}
               style={{ cursor: "pointer" }}
             >
-              <td>{claim.orderNumber}</td>
-              <td>{claim.claimType}</td>
-              <td>{claim.description}</td>
-              <td>{claim.claimAmount}</td>
               <td>{claim.responsibleParty}</td>
+              <td>{claim.vocContent}</td>
+              <td>{claim.penalty?.penaltyContent ?? "N/A"}</td>
+              <td>{claim.compensation?.compensationAmount ?? "N/A"}</td>
+              <td>{claim.verificationStatus ? "확인됨" : "미확인"}</td>
             </tr>
           ))}
         </tbody>
