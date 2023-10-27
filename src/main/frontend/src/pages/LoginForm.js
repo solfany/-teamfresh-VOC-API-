@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
 
 function LoginForm() {
-  const [loginType, setLoginType] = useState("팀프레시 담당자");
+  const [loginType, setLoginType] = useState("VOC 시스템 담당자");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
