@@ -1,3 +1,6 @@
+## 프로젝트 소개 
+물류사와 고객사에서 입입된 클레임건을 처리할 수 있는 VOC 처리 시스템 
+
 
 ## 요구 사항 
 ### VOC 목록 API
@@ -15,6 +18,10 @@ VOC 등록
 - java 17
 - Spring Boot 3.1.3
 - Mysql 8.0.27
+- React
+- Javascript
+- GitKarken
+
 
 ## 개발기간 
 2023.10.15 ~ 2023.10.20 (5일간 진행)
@@ -34,8 +41,15 @@ Github에서 프로젝트, 스프린트, 이슈, 마일스톤 사용하여 진�
 
 ## 사용자 화면
 
+### 메인 
+<img width="1265" alt="스크린샷 2023-10-27 오후 3 29 42" src="https://github.com/solfany/VOC-API/assets/123814718/0adc40f7-6450-493b-b119-2aff9aa208c0">
+
+### 로그인 
+<img width="1265" alt="스크린샷 2023-10-27 오후 3 46 39" src="https://github.com/solfany/VOC-API/assets/123814718/0bd777fe-2d5e-45a3-bc85-72fa424196ff">
+
+
 ### 클레임 접수 
-https://github.com/solfany/TeamFresh-VOC-API/assets/123814718/0a1d8c05-312b-40b5-94e7-1efd305b37f1
+https://github.com/solfany/VOC-API/assets/123814718/814f9b20-6009-4f6a-b7f6-cddb583352b1
 
 ### 클레임 접수 목록
 https://github.com/solfany/TeamFresh-VOC-API/assets/123814718/93347d31-e120-4215-8940-a770645f2ace
@@ -47,13 +61,16 @@ https://github.com/solfany/TeamFresh-VOC-API/assets/123814718/a05ea284-c149-4ab4
 
 ### 귀책인정
 
-https://github.com/solfany/TeamFresh-VOC-API/assets/123814718/0ff8220f-bb37-4e9b-ba5c-9704c20038fa
+https://github.com/solfany/VOC-API/assets/123814718/b99f4d45-d0c0-4a1b-b174-d6451a2394ec
 
 ### 배상 상세정보
 
-https://github.com/solfany/TeamFresh-VOC-API/assets/123814718/d81c5c46-40a2-4d70-880a-c450cba37946
+https://github.com/solfany/VOC-API/assets/123814718/953d1a35-7895-4af2-9cad-b9ac0a937c5f
 
+### 회고 
+프로젝트를 진행하면서 5일이라는 제한된 시간에 적응하려다 보니, 테이블 설계나 양방향 무한 참조와 같은 이슈에 부딪혔다. 더 많은 시간이 주어졌다면 더 품질 높은 로직을 만들 수 있었을 것이라는 아쉬움이 든다. 그럼에도 불구하고, 이 프로젝트에는 나의 애정이 깊이 담겨 있다.
 
+데이터를 어떻게 분산 저장하고 처리할지, 대용량 트래픽에서도 시스템이 원활하게 동작하게 하려면 어떻게 해야 할지에 대한 깊은 고민을 할 수 있었던 시간이었다. 그 과정에서 많은 것을 배웠다.
 
-
+지금까지 내가 관심있는 주제에 기반하여 개발을 진행해왔다면, 이번에는 주어진 요구사항을 바탕으로 개발하는 경험을 했다. 두 방식 모두 나에게는 새로운 도전과 자극을 주었다. 앞으로도 이런 다양한 경험을 계속해서 누리고 싶다.
 
