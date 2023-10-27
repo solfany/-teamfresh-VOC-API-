@@ -7,9 +7,9 @@ const HomePage = () => {
   return (
     <div className="home-container">
       <div className="content">
-        <h1>TeamFresh to VOC System</h1>
-        <img src="https://github.com/solfany/TeamFresh-VOC-API/assets/123814718/6802ecc1-3058-41f1-ad36-8c3e5fda2968"></img>
-        <img src="https://github.com/solfany/TeamFresh-VOC-API/assets/123814718/7e993d7e-b6e9-4a4f-9ae7-f84956c57f39"></img>
+        <h1>VOC System</h1>
+        <img src="https://github.com/solfany/VOC-API/assets/123814718/d6e47fdf-c0a6-42e8-8017-a2439f926e53"></img>
+        {/*<img src="https://github.com/solfany/VOC-API/assets/123814718/e539deb6-4ec1-4150-80b6-7c0d3bbd8610"></img>*/}
       </div>
     </div>
   );
