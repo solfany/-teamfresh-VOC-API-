@@ -26,7 +26,7 @@ function LoginForm() {
                 value={loginType}
                 onChange={(e) => setLoginType(e.target.value)}
               >
-                <option>팀프레시 담당자</option>
+                <option>VOC 시스템 담당자</option>
                 <option>배송사</option>
                 <option>고객사</option>
               </Form.Control>
